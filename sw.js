@@ -1,4 +1,4 @@
-const CACHE = "weekflow-v2";
+const CACHE = "weekflow-v3";
 const BASE = new URL("./", self.location.href).pathname;
 self.addEventListener("install", (event) => event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll([BASE, `${BASE}manifest.webmanifest`, `${BASE}icon.svg`]))));
 self.addEventListener("activate", (event) => event.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((key) => key !== CACHE).map((key) => caches.delete(key))))));
